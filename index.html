@@ -32,8 +32,44 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
           crossorigin="anonymous"
         />
-    
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/6f47b95a54.js"
+      crossorigin="anonymous"
+    ></script>
+
+
         <style>
+.fa-cart-plus {
+    color:darkgrey;
+}
+
+          a:hover .fa-cart-plus  {
+    color:yellow;
+}  
+
+/* .card-img-top{
+height:100%;
+    max-width: 1000px;
+    object-fit: contain;
+} */
+
+
+.card-img-top {
+     position: relative;
+     top:0;
+     left:0;
+     width: 300px;     
+     height: 300px;
+     overflow: hidden;
+     height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
           .jumbotron {
             padding-top: 3rem;
             padding-bottom: 3rem;
@@ -77,9 +113,7 @@
             user-select: none;
           }
     
-    .fa-cart-plus {
-        color:limegreen
-    }
+   
           @media (min-width: 768px) {
             .bd-placeholder-img-lg {
               font-size: 3.5rem;
@@ -99,28 +133,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="#">On Sale</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Category
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Sci Fi</a>
+                    <a class="dropdown-item" href="#">Romance</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">First Additions</a>
                   </div>
                 </li>
-            
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 search-btn " type="submit">Search</button>
+                  </form>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 search-btn " type="submit">Search</button>
-              </form>
+              <i class="fas fa-cart-plus ml-3 fa-2x"></i>
             </div>
           </nav>
     </header>
@@ -129,10 +160,9 @@
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Strive Bookstore</h1>
-          <p>
-            <a href="#" class="btn btn-primary my-2 " onclick="getBooks()">New Additions</a>
-            <a href="#" class="btn btn-secondary my-2 ">On Sale</a>
-          </p>
+              <!-- <p>
+            <a href="#" class="btn btn-primary my-2 " onclick="">New Additions</a>
+          </p> -->
         </div>
       </section>
 

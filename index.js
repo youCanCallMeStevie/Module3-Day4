@@ -1,36 +1,29 @@
 const btnFetch = document.querySelectorAll(".btnFetch");
-const containerImgs = document.querySelector(".container-images");
+const bookResults = document.querySelector(".container-images");
 const btnModalImages = document.querySelectorAll("button");
 let btns = document.getElementsByClassName("btnImageModal");
 
-const getBooks = (param) => {
-  fetch(`https://striveschool-api.herokuapp.com/books/?title=${param}`, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((parsedJson) => {
-    containerImgs.querySelectorAll('*').forEach(element=>element.remove())
+//       console.log(parsedJson);
+//     })
+//     .catch((e) => console.log(e));
+// };
+//   bookResults
+//     .querySelectorAll("*")
+//     .forEach((element) => element.remove());
 
-      //       console.log(parsedJson);
-      //     })
-      //     .catch((e) => console.log(e));
-      // };
-      //   containerImgs
-      //     .querySelectorAll("*")
-      //     .forEach((element) => element.remove());
-
-      parsedJson.forEach((element) => {
-        const div = document.createElement("div");
-        console.log(element);
-        div.classList.add("col-md-4");
-        div.classList.add("books-container");
-        div.innerHTML = ` <div class="card mb-4 shadow-sm">
-                             <img class="card-img-top" src="${element.img}">
+const createBook = (book) => {
+  //   parsedJson.forEach((element) => {
+  const div = document.createElement("div");
+//   console.log(book);
+  div.classList.add("col-md-4");
+  div.classList.add("books-container");
+  div.innerHTML = ` <div class="card mb-4 shadow-sm" >
+                             <img class="card-img-top d-flex" src="${book.img}">
                              <div class="card-body">
                                 <p class="card-text">
-                                "${element.title}", $${element.price}
+                                <h6>"${book.title}"</h6> $${book.price}
                                 <div>
-                                <small class="text-muted">${element.category}</small>
+                                <small class="text-muted">${book.category}</small>
                                 </div>
 
                                 </p>
@@ -39,16 +32,28 @@ const getBooks = (param) => {
                                         <button type="button" class="btn btn-sm btn-outline-secondary btnHide" onclick="hideToggle()">
                                         Skip
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-success " onclick="addToCart()">
-                                        Add to Cart
-                                        </button>
+                                        <a><button type="button" class="btn btn-sm btn-outline-success" onclick="">
+                                        Add to Cart<span><i class="fas fa-cart-plus ml-3"></i></span>
+                                        </button></a>
                                     </div>
                                     
                                 </div>
                                </div>
                            </div>`;
-        containerImgs.appendChild(div);
-      });
+  bookResults.appendChild(div);
+};
+let bookLibrary = [];
+const getBooks = () => {
+  fetch(`https://striveschool-api.herokuapp.com/books/`, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((catalogue) => {
+      bookLibrary = catalogue;
+      catalogue.forEach((item) => createBook(item));
+      // bookResults
+      //   .querySelectorAll("*")
+      //   .forEach((element) => element.remove());
     });
 };
 
@@ -62,18 +67,28 @@ const hideToggle = () => {
   }
 };
 
-const btn = document.querySelector('.search-btn')
-btn.addEventListener('click', function(e){
-  e.preventDefault()
-  const input = document.querySelector('.form-control').value
-  getBooks(input)
-})
-// }
-// const btn = document.querySelector('.search-btn')
-// btn.addEventListener('click', function(e){
-//   e.preventDefault()
-//   const input = document.querySelector('.form-control').value
-//   getPhotos(input)
-// })
+const btn = document.querySelector(".search-btn");
+btn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const input = document.querySelector(".form-control").value;
+  console.log(input)
+  bookResults.querySelectorAll("*").forEach((element) => element.remove());
+  const filteredLibrary = bookLibrary.filter(item => item.title.toLowerCase().includes(input.toLowerCase())
+  );
+  console.log(filteredLibrary)
+  console.log(bookLibrary)
+  filteredLibrary.forEach((book) => createBook(book));
+});
 
-//array.filter for search
+//   const basket = [];
+//   const addToCart = (asin) => basket.push(asin);
+//   const books = fetch("https://striveschool-api.herokuapp.com/books/");
+//   let basketBooks = books.filter((book) => basket.includes(book));
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  getBooks();
+});
+
+//   ${addToCart(
+//     book.asin
+//   )}
