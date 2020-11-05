@@ -130,16 +130,16 @@
 
 // 5.FINDINDEX & FIND
 
-// const numbers = [24, 41, 23, 16, 59];
+const numbers = [24, 41, 23, 16, 59];
 
 // console.log(
 //   "find output:",
 //   numbers.find((number) => number > 30)
 // );
-// console.log(
-//   "findIndex output: ",
-//   numbers.findIndex((number) => number > 30)
-// );
+console.log(
+  "findIndex output: ",
+  numbers.findIndex((number) => number > 30)
+);
 
 // 7. FILL
 

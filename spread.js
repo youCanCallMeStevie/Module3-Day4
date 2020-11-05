@@ -33,3 +33,14 @@
 
 // const clonedArray = clone([1, 3, 5]);
 // console.log(clonedArray);
+
+// const myAwesomeArray = ["a","b", "c"]
+// console.log(myAwesomeArray.some((element) => element === "f"))
+// console.log(myAwesomeArray.every((element) => element === "a"))
+
+// const myAwesomeArray=[[1,2], [3,4], [5,6], 7]
+// console.log(myAwesomeArray.flat()) //moves to all the same "level"
+
+const myAwesomeArray=[[1,2], [3,4], [5,6], 7]
+myAwesomeArray.forEach((elements) => console.log(elements))
+ 
