@@ -113,6 +113,11 @@ height:100%;
             user-select: none;
           }
     
+    .cart-items {
+        text-decoration: none;
+        list-style: none;
+        padding-left: 0px;
+    }
    
           @media (min-width: 768px) {
             .bd-placeholder-img-lg {
@@ -148,11 +153,21 @@ height:100%;
                 </li>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0 search-btn " type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
                   </form>
               </ul>
-              <i class="fas fa-cart-plus ml-3 fa-2x"></i>
-            </div>
+              <div class = "car-container d-flex">
+                    <i class="fas fa-cart-plus fa-2x mr-3"></i></a>
+                    <ul class = "cart-items mr-3 ">
+                        <li>Book 1<span class="close">&times;</span></li>
+                      
+                        <li>Book 2<span class="close">&times;</span></li>
+                        <li>Book 2<span class="close">&times;</span></li>
+                      
+                        <li>Book 3<span class="close">&times;</span></li>
+                        <li>Book 4<span class="close">&times;</span></li>
+                      </ul>
+                    </div>
           </nav>
     </header>
 

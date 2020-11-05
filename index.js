@@ -85,6 +85,14 @@ btn.addEventListener("click", function (e) {
 //   const books = fetch("https://striveschool-api.herokuapp.com/books/");
 //   let basketBooks = books.filter((book) => basket.includes(book));
 
+const closebtns = document.getElementsByClassName("close");
+let i;
+for (i = 0; i < closebtns.length; i++) {
+  closebtns[i].addEventListener("click", function() {
+    this.parentElement.style.display = 'none';
+  });
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   getBooks();
 });
